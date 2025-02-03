@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pelican/routes/route_name.dart';
 import 'package:pelican/views/onboarding/OnBoardingData.dart';
 
 class onBoarding extends StatelessWidget {
@@ -138,27 +139,36 @@ class OnboardingBody extends StatelessWidget {
   }
 
   // Button
-  Widget button(OnboardingController controller) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 20),
-      width: Get.width * 0.9,
-      height: 55,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: Color.fromRGBO(218, 37, 28, 1),
-      ),
-      child: TextButton(
-        onPressed: controller.nextPage,
-        child: Obx(
-          () => Text(
-            controller.currentIndex.value == OnboardingData().items.length - 1
-                ? "Get Started"
-                : "Next",
-            style: const TextStyle(
-                color: Colors.white, fontSize: 15, fontWeight: FontWeight.w700,fontFamily: 'Montserrat'),
-          ),
+Widget button(OnboardingController controller) {
+  return Container(
+    margin: const EdgeInsets.symmetric(vertical: 20),
+    width: Get.width * 0.9,
+    height: 55,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(8),
+      color: Color.fromRGBO(218, 37, 28, 1),
+    ),
+    child: TextButton(
+      onPressed: () {
+        if (controller.currentIndex.value == OnboardingData().items.length - 1) {
+          // Pindah ke halaman login
+          Get.offAllNamed(routeName.loginView);
+        } else {
+          // Pindah ke halaman berikutnya
+          controller.nextPage();
+        }
+      },
+      child: Obx(
+        () => Text(
+          controller.currentIndex.value == OnboardingData().items.length - 1
+              ? "Get Started"
+              : "Next",
+          style: const TextStyle(
+              color: Colors.white, fontSize: 15, fontWeight: FontWeight.w700, fontFamily: 'Montserrat'),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
+
 }
