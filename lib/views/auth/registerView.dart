@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pelican/routes/route_name.dart';
 
-class loginView extends StatelessWidget {
-  const loginView({super.key});
+class registerView extends StatelessWidget {
+  const registerView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class loginView extends StatelessWidget {
 
                     // 🔹 Text Welcome Back
                     Text(
-                      "Welcome Back",
+                      "Create Your Account",
                       style: TextStyle(
                         fontFamily: 'Montserrat',
                         fontSize: 24,
@@ -65,12 +65,27 @@ class loginView extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
 
+                    // 🔹 TextField Username
+                    TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Color.fromRGBO(242, 243, 247, 1),
+                        hintText: "Username",
+                        hintStyle: TextStyle(fontFamily: 'Montserrat'),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 16),
+
                     // 🔹 TextField Email
                     TextField(
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Color.fromRGBO(242, 243, 247, 1),
-                        hintText: "Email",
+                        hintText: "Email@gmail.com",
                         hintStyle: TextStyle(fontFamily: 'Montserrat'),
                         border: OutlineInputBorder(
                           borderSide: BorderSide.none,
@@ -106,9 +121,8 @@ class loginView extends StatelessWidget {
                     // 🔹 Button Sign In
                     ElevatedButton(
                       onPressed: () {
-                        // Get.snackbar("Login", "Login button pressed!",
-                        //     snackPosition: SnackPosition.BOTTOM);
-                        Get.offAllNamed(routeName.mainscreenview);
+                        Get.snackbar("Login", "Login button pressed!",
+                            snackPosition: SnackPosition.BOTTOM);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color.fromRGBO(218, 37, 28, 1),
@@ -118,7 +132,7 @@ class loginView extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        "Sign In",
+                        "Sign Up",
                         style: TextStyle(
                           fontSize: 15,
                           color: Colors.white,
@@ -132,11 +146,11 @@ class loginView extends StatelessWidget {
                     // 🔹 Sign Up Text
                     GestureDetector(
                       onTap: () {
-                        Get.offAllNamed(routeName.registerView); // Navigasi ke halaman Register 
+                        Get.offAllNamed(routeName.loginView); // Navigasi ke halaman Register jika ada
                       },
                       child: Text.rich(
                         TextSpan(
-                          text: "Don’t have an account? ",
+                          text: "Already have an account? ",
                           style: TextStyle(
                             color: Color.fromRGBO(83, 83, 83, 1),
                             fontSize: 12,
@@ -145,7 +159,7 @@ class loginView extends StatelessWidget {
                           ),
                           children: [
                             TextSpan(
-                              text: "Sign Up",
+                              text: " Sign In",
                               style: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontSize: 12,
