@@ -1,3 +1,4 @@
+import 'package:pelican/views/attendance/attendanceDetail.dart';
 import 'package:pelican/views/attendance/attendanceView.dart';
 
 abstract class routeName{
@@ -9,5 +10,6 @@ abstract class routeName{
   static const mainscreenview = '/mainscreenView';
 
   static const attendanceView = '/attendanceView';
+  static const attendanceDetail = '/attendanceDetail';
 
 }
