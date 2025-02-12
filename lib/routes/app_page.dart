@@ -1,5 +1,6 @@
 import 'package:pelican/routes/route_name.dart';
 import 'package:get/get.dart';
+import 'package:pelican/views/attendance/attendanceView.dart';
 import 'package:pelican/views/auth/loginView.dart';
 import 'package:pelican/views/auth/registerView.dart';
 
@@ -20,6 +21,7 @@ class appPage {
     GetPage(name: routeName.registerView, page: () => registerView()),
 
     GetPage(name: routeName.mainscreenview, page: () => mainscreenview()),
+    GetPage(name: routeName.attendanceView, page: () => attendanceView()),
 
   ];
 }

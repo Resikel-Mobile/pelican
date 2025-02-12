@@ -25,7 +25,7 @@ class mainscreenview extends StatelessWidget {
 
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(0),
-        child: bottomNavbar(),
+        child: BottomNavbar(),
       )
     );
   }

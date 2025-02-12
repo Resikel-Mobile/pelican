@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: routeName.splashScreen,
+      initialRoute: routeName.mainscreenview,
       getPages: appPage.pages,
     );
   }
