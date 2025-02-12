@@ -28,7 +28,9 @@ class attendanceView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                      onPressed: () {Get.back();},
+                      onPressed: () {
+                        Get.back();
+                      },
                       icon: Icon(
                         Icons.arrow_back_ios_new_rounded,
                         color: Colors.white,
@@ -59,7 +61,7 @@ class attendanceView extends StatelessWidget {
             ),
             child: Container(
               width: Get.width,
-              height: 252,
+              height: Get.height * 0.33,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(10)),
               child: Padding(
@@ -160,7 +162,7 @@ class attendanceView extends StatelessWidget {
           // end clock in
 
           Padding(
-            padding: EdgeInsets.only(top: Get.height * 0.44),
+            padding: EdgeInsets.only(top: Get.height * 0.5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

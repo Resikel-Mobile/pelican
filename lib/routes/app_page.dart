@@ -1,6 +1,7 @@
 import 'package:pelican/routes/route_name.dart';
 import 'package:get/get.dart';
 import 'package:pelican/views/attendance/attendanceDetail.dart';
+import 'package:pelican/views/attendance/attendanceSummary.dart';
 import 'package:pelican/views/attendance/attendanceView.dart';
 import 'package:pelican/views/auth/loginView.dart';
 import 'package:pelican/views/auth/registerView.dart';
@@ -10,7 +11,6 @@ import 'package:pelican/views/onboarding/onBoarding.dart';
 import 'package:pelican/views/splash/splashScreen.dart';
 
 class appPage {
-
   static final INITIAL = routeName.splashScreen;
 
   static final pages = [
@@ -24,6 +24,6 @@ class appPage {
     GetPage(name: routeName.mainscreenview, page: () => mainscreenview()),
     GetPage(name: routeName.attendanceView, page: () => attendanceView()),
     GetPage(name: routeName.attendanceDetail, page: () => attendanceDetail()),
-
+    GetPage(name: routeName.attendanceSummary, page: () => attendanceSummary()),
   ];
 }
