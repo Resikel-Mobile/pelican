@@ -8,12 +8,29 @@ class attendanceView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(218, 37, 28, 1),
+        leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: Icon(Icons.arrow_back_ios_new_rounded,
+                color: Color.fromRGBO(255, 255, 255, 1))),
+        centerTitle: true,
+        title: Text("Attendance",
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'Montserrat',
+              fontSize: 18,
+              fontWeight: FontWeight.w700,
+            )),
+      ),
       body: Stack(
         children: [
           // Background Container
           Container(
             width: Get.width,
-            height: Get.height * 0.22,
+            height: Get.height * 0.10,
             decoration: BoxDecoration(
               color: Color.fromRGBO(218, 37, 28, 1),
               borderRadius: BorderRadius.only(
@@ -21,148 +38,131 @@ class attendanceView extends StatelessWidget {
                 bottomLeft: Radius.circular(30),
               ),
             ),
-            child: Padding(
-              padding: EdgeInsets.only(bottom: Get.height * 0.04),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        Get.back();
-                      },
-                      icon: Icon(
-                        Icons.arrow_back_ios_new_rounded,
-                        color: Colors.white,
-                      )),
-                  Text("Attendance",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                      )),
-                  IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.abc,
-                        color: Colors.transparent,
-                      )),
-                ],
-              ),
-            ),
           ),
 
           // Clock in
           Padding(
             padding: EdgeInsets.only(
-              top: Get.height * 0.145,
+              top: Get.height * 0.035,
               left: Get.width * 0.05,
               right: Get.width * 0.05,
             ),
             child: Container(
-              width: Get.width,
-              height: Get.height * 0.33,
+              width: double.infinity, 
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 15, 20, 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("Tue, 4 Feb 2025",
-                            style: TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontSize: 13,
-                              fontWeight: FontWeight.w600,
-                            )),
-                        Container(
-                          padding:
-                              EdgeInsets.symmetric(vertical: 5, horizontal: 12),
-                          decoration: BoxDecoration(
-                              color: Color.fromRGBO(69, 179, 105, 0.15),
-                              borderRadius: BorderRadius.circular(25)),
-                          child: Text("Sedang Bekerja",
-                              style: TextStyle(
-                                color: Color.fromRGBO(69, 179, 105, 1),
-                                fontFamily: 'Montserrat',
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                              )),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 12,
-                    ),
-                    Text("08:00 AM - 05:00 PM",
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Column(
+                mainAxisSize:
+                    MainAxisSize.min, // Agar tidak mengambil tinggi tetap
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Tue, 4 Feb 2025",
                         style: TextStyle(
                           fontFamily: 'Montserrat',
-                          fontSize: 24,
+                          fontSize: 13,
                           fontWeight: FontWeight.w600,
-                        )),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                      child: Divider(
-                        height: 1,
-                        color: Color.fromRGBO(224, 226, 230, 1),
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Image.asset("assets/icons/ic_marker.png"),
-                        SizedBox(
-                          width: 10,
                         ),
-                        Text("Location",
-                            style: TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontSize: 13,
-                              fontWeight: FontWeight.w600,
-                            ))
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(28, 4, 0, 14),
-                      child: Text(
-                          "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia",
-                          style: TextStyle(
-                            fontFamily: 'Montserrat',
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400,
-                          )),
-                    ),
-                    Container(
-                      height: 45,
-                      width: Get.width,
-                      child: ElevatedButton(
-                        onPressed: () {
-                          Get.toNamed(routeName.attendanceDetail);
-                        },
-                        child: Text("Clock In",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Montserrat',
-                              fontSize: 13,
-                              fontWeight: FontWeight.w600,
-                            )),
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromRGBO(245, 71, 62, 1),
-                            shape: ContinuousRectangleBorder(
-                                borderRadius: BorderRadius.circular(15))),
                       ),
-                    )
-                  ],
-                ),
+                      Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 5, horizontal: 12),
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(69, 179, 105, 0.15),
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Text(
+                          "Sedang Bekerja",
+                          style: TextStyle(
+                            color: Color.fromRGBO(69, 179, 105, 1),
+                            fontFamily: 'Montserrat',
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Text(
+                    "08:00 AM - 05:00 PM",
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontSize: 24,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
+                    child: Divider(
+                      height: 1,
+                      color: Color.fromRGBO(224, 226, 230, 1),
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Image.asset("assets/icons/ic_marker.png"),
+                      SizedBox(width: 10),
+                      Text(
+                        "Location",
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(28, 4, 0, 14),
+                    child: Text(
+                      "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia",
+                      style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        fontSize: 13,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Get.toNamed(routeName.attendanceDetail);
+                      },
+                      child: Text(
+                        "Clock In",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Montserrat',
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromRGBO(245, 71, 62, 1),
+                        shape: ContinuousRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
           // end clock in
 
           Padding(
-            padding: EdgeInsets.only(top: Get.height * 0.5),
+            padding: EdgeInsets.only(top: Get.height * 0.35),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

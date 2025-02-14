@@ -14,7 +14,7 @@ class mainscreenview extends StatelessWidget {
   final List<Widget> pages = [
     homeView(),
     taskView(),
-    discussionview(),
+    CommunityView(),
     departmentview(),
   ];
 

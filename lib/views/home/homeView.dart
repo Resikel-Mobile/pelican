@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pelican/routes/route_name.dart';
-import 'package:pelican/views/attendance/attendanceView.dart';
 
 class homeView extends StatelessWidget {
   const homeView({super.key});
@@ -76,9 +75,8 @@ class homeView extends StatelessWidget {
               ],
             ),
           ),
-          // profile
 
-          // TextField
+          // TextField & Konten Scrollable
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
@@ -120,17 +118,16 @@ class homeView extends StatelessWidget {
                         ),
                         hintText: 'Ingin mencari apa?',
                         hintStyle: TextStyle(
-                            color: Color.fromRGBO(105, 105, 105, 1),
-                            fontFamily: 'Montserrat',
-                            fontSize: 13,
-                            fontWeight: FontWeight.w400),
+                          color: Color.fromRGBO(105, 105, 105, 1),
+                          fontFamily: 'Montserrat',
+                          fontSize: 13,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     ),
                   ),
 
-                  SizedBox(
-                    height: 25,
-                  ),
+                  SizedBox(height: 25),
 
                   // fitur
                   Row(
@@ -216,106 +213,84 @@ class homeView extends StatelessWidget {
                   ),
                   // end fitur
 
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text("Department",
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      )),
+                  SizedBox(height: 25),
 
-                  // card department survey
-                  Container(
-                    margin: EdgeInsets.only(top: 15, bottom: 6),
-                    width: Get.width,
-                    height: 85,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(
-                              0.05), // Warna shadow dengan transparansi
-                          blurRadius: 8, // Tingkat blur shadow
-                          spreadRadius: 0, // Seberapa jauh shadow menyebar
-                          offset: Offset(0, 0), // Posisi bayangan (x, y)
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 18),
-                          width: 65,
-                          height: 65,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                                image: AssetImage(
-                              "assets/images/survey.png",
-                            )),
-                          ),
-                        ),
-                        Text("Survey & Inspection",
-                            style: TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ))
-                      ],
+                  // Expanded untuk Scrollable Content
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Department",
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              )),
+                          _departmentCard("Survey & Inspection",
+                              "assets/images/survey.png"),
+                          _departmentCard("Field Operations",
+                              "assets/images/operation.png"),
+                          _departmentCard("Security and Safety",
+                              "assets/images/safety.png"),
+                          _departmentCard("Construction and Maintenance",
+                              "assets/images/maintenance.png"),
+                        ],
+                      ),
                     ),
                   ),
-                  // end department survey
-
-                  // card department survey
-                  Container(
-                    margin: EdgeInsets.only(top: 15, bottom: 6),
-                    width: Get.width,
-                    height: 85,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(
-                              0.05), // Warna shadow dengan transparansi
-                          blurRadius: 8, // Tingkat blur shadow
-                          spreadRadius: 0, // Seberapa jauh shadow menyebar
-                          offset: Offset(0, 0), // Posisi bayangan (x, y)
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 18),
-                          width: 65,
-                          height: 65,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                "assets/images/operation.png",
-                              ))),
-                        ),
-                        Text("Field Operations",
-                            style: TextStyle(
-                              fontFamily: 'Montserrat',
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ))
-                      ],
-                    ),
-                  ),
-                  // end department survey
                 ],
               ),
             ),
           ),
-          // end textfield
         ],
+      ),
+    );
+  }
+
+  // Widget untuk Card Department
+  Widget _departmentCard(String title, String imagePath) {
+    return GestureDetector(
+      onTap: () {
+        Get.toNamed(routeName.departmentview);
+      },
+      child: Container(
+        margin: EdgeInsets.only(top: 15, bottom: 4),
+        width: Get.width,
+        height: 85,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 8,
+              spreadRadius: 0,
+              offset: Offset(0, 0),
+            ),
+          ],
+        ),
+        child: Row(
+          children: [
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 18),
+              width: 65,
+              height: 65,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                image: DecorationImage(
+                  image: AssetImage(imagePath),
+                ),
+              ),
+            ),
+            Text(title,
+                style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                )),
+          ],
+        ),
       ),
     );
   }
