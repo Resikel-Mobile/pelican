@@ -27,41 +27,46 @@ class homeView extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 25),
-                  child: Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(width: 1, color: Colors.white),
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.toNamed(routeName.profileView);
+                    },
+                    child: Row(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(width: 1, color: Colors.white),
+                          ),
+                          child: CircleAvatar(
+                            backgroundImage:
+                                AssetImage("assets/images/cthpp.png"),
+                            radius: Get.width * 0.065,
+                          ),
                         ),
-                        child: CircleAvatar(
-                          backgroundImage:
-                              AssetImage("assets/images/cthpp.png"),
-                          radius: Get.width * 0.065,
+                        SizedBox(width: 15),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Milo Milow",
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                )),
+                            Text("Supervisor A",
+                                style: TextStyle(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.white,
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                ))
+                          ],
                         ),
-                      ),
-                      SizedBox(width: 15),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Milo Milow",
-                              style: TextStyle(
-                                fontFamily: 'Montserrat',
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                              )),
-                          Text("Supervisor A",
-                              style: TextStyle(
-                                fontFamily: 'Montserrat',
-                                color: Colors.white,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w400,
-                              ))
-                        ],
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 IconButton(
@@ -163,50 +168,60 @@ class homeView extends StatelessWidget {
                       ),
 
                       // report
-                      Container(
-                        width: Get.width * 0.27,
-                        height: 86,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset("assets/icons/ic_report.png"),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text("Report",
-                                style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                ))
-                          ],
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(routeName.reportAttendance);
+                        },
+                        child: Container(
+                          width: Get.width * 0.27,
+                          height: 86,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset("assets/icons/ic_report.png"),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              Text("Report",
+                                  style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                  ))
+                            ],
+                          ),
                         ),
                       ),
 
                       // member
-                      Container(
-                        width: Get.width * 0.27,
-                        height: 86,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Image.asset("assets/icons/ic_member.png"),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            Text("Member",
-                                style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                ))
-                          ],
+                      GestureDetector(
+                        onTap: () {
+                          Get.toNamed(routeName.membersView);
+                        },
+                        child: Container(
+                          width: Get.width * 0.27,
+                          height: 86,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset("assets/icons/ic_member.png"),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              Text("Member",
+                                  style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                  ))
+                            ],
+                          ),
                         ),
                       ),
                     ],

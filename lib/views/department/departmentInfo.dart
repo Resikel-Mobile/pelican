@@ -2,12 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pelican/views/controllers/departmentInfo_controller.dart';
+import 'package:pelican/views/controllers/pickimage_controller.dart';
 
 class departmentInfo extends StatelessWidget {
   departmentInfo({super.key});
-  final DepartmentInfoController controller =
-      Get.put(DepartmentInfoController());
+  final PickImageController controller =
+      Get.put(PickImageController());
 
   @override
   Widget build(BuildContext context) {

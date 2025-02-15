@@ -158,6 +158,20 @@ class _CreateAnnouncementState extends State<CreateAnnouncement> {
                     width: 1.5,
                   ),
                 ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Color.fromRGBO(224, 226, 230, 1),
+                    width: 1.5,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Color.fromRGBO(224, 226, 230, 1),
+                    width: 1.5,
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 20),
@@ -179,6 +193,20 @@ class _CreateAnnouncementState extends State<CreateAnnouncement> {
                   fontWeight: FontWeight.w400,
                 ),
                 border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Color.fromRGBO(224, 226, 230, 1),
+                    width: 1.5,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Color.fromRGBO(224, 226, 230, 1),
+                    width: 1.5,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide(
                     color: Color.fromRGBO(224, 226, 230, 1),

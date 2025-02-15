@@ -3,6 +3,7 @@ class memberModel {
   final String time;
   final String date;
   final String? imageUrl;
+  final String category;
   bool isSelected;
 
 
@@ -11,6 +12,7 @@ class memberModel {
     required this.time,
     required this.date,
     this.imageUrl,
+      this.category = "Staff",
      this.isSelected = false,
   });
 }

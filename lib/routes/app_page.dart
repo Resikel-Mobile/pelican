@@ -1,3 +1,6 @@
+import 'package:pelican/views/member/memberDetail.dart';
+import 'package:pelican/views/member/memberEdit.dart';
+import 'package:pelican/views/member/membersView.dart';
 import 'package:pelican/routes/route_name.dart';
 import 'package:get/get.dart';
 import 'package:pelican/views/attendance/attendanceDetail.dart';
@@ -13,6 +16,9 @@ import 'package:pelican/views/department/notification/selectMember.dart';
 
 import 'package:pelican/views/mainscreenView.dart';
 import 'package:pelican/views/onboarding/onBoarding.dart';
+import 'package:pelican/views/profile/profileView.dart';
+import 'package:pelican/views/report/memberHistory.dart';
+import 'package:pelican/views/report/reportAttendance.dart';
 import 'package:pelican/views/splash/splashScreen.dart';
 
 class appPage {
@@ -38,5 +44,23 @@ class appPage {
     GetPage(name: routeName.selectMember, page: () => selectMember()),
     GetPage(
         name: routeName.CreateAnnouncement, page: () => CreateAnnouncement()),
+
+    GetPage(name: routeName.membersView, page: () => membersView()),
+    GetPage(
+        name: routeName.memberEdit,
+        page: () => memberEdit(
+              member: Get.arguments,
+            )),
+    GetPage(
+      name: routeName.memberDetail,
+      page: () => memberDetail(member: Get.arguments),
+    ),
+
+    // report
+    GetPage(name: routeName.reportAttendance, page: () => reportAttendance()),
+    GetPage(name: routeName.memberHistory, page: () => memberHistory()),
+
+    // profile
+    GetPage(name: routeName.profileView, page: () => profileView()),
   ];
 }

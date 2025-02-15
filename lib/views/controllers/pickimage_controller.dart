@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
-class DepartmentInfoController extends GetxController {
+class PickImageController extends GetxController {
   var selectedImage = ''.obs;
 
   void pickImage() async {
